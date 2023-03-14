@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div data-th-unless="${#lists.isEmpty(cart.contents)}">
+        <div data-th-each="it: ${cart.contents}" data-th-object="${it}">
+            <span data-th-text="*{name}"></span>
+            <span data-th-text="*{quantity}"></span>
+        </div>
+    </div>
+
+    <form method="GET" data-th-action="@{/cart/checkout}">
+        <button type="submit">Checkout</button>
+    </form>
+</body>
+</html>
